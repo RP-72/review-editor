@@ -31,11 +31,11 @@ const select = state => state
 function EditReview() {
     const reviews = useSelector(select)
     // const reviews = store.getState();
-    console.log(reviews, "Reviews");
+    // console.log(reviews, "Reviews");
     const dispatch = useDispatch()
 
     const onSortEnd = ({oldIndex, newIndex}) => {
-        console.log("old and new ind ",oldIndex, newIndex)
+        // console.log("old and new ind ",oldIndex, newIndex)
         dispatch({type: 'move', payload: {oldInd: oldIndex, newInd: newIndex}})
     }
 

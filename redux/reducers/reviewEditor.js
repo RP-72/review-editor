@@ -13,19 +13,32 @@ function nextId(state){
 function reviewEditor(state = [], action) {
     switch(action.type){
         case 'edit': {
-            let arr = state
-            for(let i=0;i<state.length;i++){
-                if(arr[i].key == action.payload.key){
-                    state[i] = {
-                        key: arr[i].key,
+            return state.map((rev)=>{
+                if(rev.key != action.payload.key){
+                    return rev
+                }
+                else{
+                    return {
+                        key: rev.key,
                         title: action.payload.title,
                         description: action.payload.description,
                         image: action.payload.image
                     }
-                }   
-            }
-            console.log(arr, "STATE")
-            return arr
+                }
+            })
+            // let arr = state
+            // for(let i=0;i<state.length;i++){
+            //     if(arr[i].key == action.payload.key){
+            //         state[i] = {
+            //             key: arr[i].key,
+            //             title: action.payload.title,
+            //             description: action.payload.description,
+            //             image: action.payload.image
+            //         }
+            //     }   
+            // }
+            // console.log(arr, "STATE")
+            // return arr
         }
         case 'delete': {
             return state.filter((rev)=> rev.key!= action.payload)
@@ -42,7 +55,7 @@ function reviewEditor(state = [], action) {
             ]
         }
         case 'move': {
-            console.log("OLD AND NEW", action.payload.oldInd, action.payload.newInd)
+            // console.log("OLD AND NEW", action.payload.oldInd, action.payload.newInd)
             return arrayMove([...state], action.payload.oldInd, action.payload.newInd)
         }
         default:

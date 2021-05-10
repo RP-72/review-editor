@@ -4,16 +4,20 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Button, Modal} from 'antd'
 
 function Review(props) {
-    const [openModal, setOpenModal] = useState(false);
-    const [editedTitle, setEditedTitle] = useState(props.title);
-    const [editedDesc, setEditedDesc] = useState(props.description)
-    const [editedImg, setEditedImg] = useState(props.image)
+    const [openModal, setOpenModal] = useState(false)
+    const [editedTitle, setEditedTitle] = useState()
+    const [editedDesc, setEditedDesc] = useState()
+    const [editedImg, setEditedImg] = useState()
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        setEditedTitle(props.title)
+        setEditedDesc(props.description)
+        setEditedImg(props.image)
+    },[props])
+
     const deleteReview = ()=>{
-        console.log(props.id)
         dispatch({type: 'delete', payload: props.id})
-        console.log(store.getState(), "AFTER DELETION")
     }
     const editClick = () =>{
         setOpenModal(true)
