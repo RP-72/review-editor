@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux'
 import Link from 'next/Link'
 import {Button, Input, message} from 'antd'
 import {useSelector} from 'react-redux'
-
+import Head from 'next/Head'
 
 function WriteReview() {
     const [reviewTitle, setTitle] = useState("");
@@ -36,6 +36,10 @@ function WriteReview() {
     //const [image, setImage] = useState("");
     return (
         <div>
+            <Head>
+                <title>Write Review</title>
+                <meta name="write review" content="You can write your review here" />
+            </Head>
             <ul>
                 <li>
                     <Link href="../">

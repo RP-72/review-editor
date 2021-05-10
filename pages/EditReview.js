@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import store from '../redux/store'
 import Review from './Review'
 import Link from 'next/link'
@@ -39,6 +40,10 @@ function EditReview() {
 
     return (
         <div>
+            <Head>
+                <title> Edit review </title>
+                <meta name="Edit review" content="Edit, delete and change the order of your reviews here"/>
+            </Head>
             <h1>Edit Reviews</h1>
             <ul>
             <li>
