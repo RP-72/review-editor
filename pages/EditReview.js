@@ -30,8 +30,6 @@ return (
 const select = state => state
 function EditReview() {
     const reviews = useSelector(select)
-    // const reviews = store.getState();
-    // console.log(reviews, "Reviews");
     const dispatch = useDispatch()
 
     const onSortEnd = ({oldIndex, newIndex}) => {
@@ -41,6 +39,7 @@ function EditReview() {
 
     return (
         <div>
+            <h1>Edit Reviews</h1>
             <ul>
             <li>
                 <Link href="../">

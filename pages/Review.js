@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import store from '../redux/store'
 import {useDispatch, useSelector} from 'react-redux'
-import {Button, Modal} from 'antd'
+import {Button, Modal, message} from 'antd'
 
 function Review(props) {
     const [openModal, setOpenModal] = useState(false)
@@ -18,6 +18,7 @@ function Review(props) {
 
     const deleteReview = ()=>{
         dispatch({type: 'delete', payload: props.id})
+        message.success('Review has been deleted')
     }
     const editClick = () =>{
         setOpenModal(true)
@@ -34,6 +35,7 @@ function Review(props) {
             description: editedDesc,
             image: editedImg,
         }})
+        message.success('Review edited successfully')
     }
     const cancelClick = () => {
         setOpenModal(false)
